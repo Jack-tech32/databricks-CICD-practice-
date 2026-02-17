@@ -1,0 +1,24 @@
+name: Databricks CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Databricks CLI
+        run: pip install databricks-cli
+
+      - name: Test Connection
+        env:
+          DATABRICKS_HOST: ${{ secrets.https://dbc-3389f58c-c556.cloud.databricks.com }}
+          DATABRICKS_TOKEN: ${{ secrets.dapi13a6d19206f6f13f7029f2a5eaca9538 }}
+        run: |
+          databricks workspace ls
