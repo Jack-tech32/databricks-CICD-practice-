@@ -19,6 +19,6 @@ jobs:
       - name: Test Connection
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKSHOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_ACCESS_TOKEN }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKSTOKEN }}
         run: |
           databricks workspace ls
